@@ -1,5 +1,11 @@
 import Link from "next/link";
 import { articles } from "../data";
+import { Metadata } from "next";
+
+export const metadata: Metadata = {
+  title: "Mon Blog",
+  description: "Bienvenue sur mon Blog",
+};
 
 export default function Blog() {
   return (
@@ -18,7 +24,10 @@ export default function Blog() {
                 {article.id}
               </span>
               {article.title} le {article.date} par {article.date}
-              <Link className="text-orange-700 mx-3" href={"/"}>
+              <Link
+                className="text-orange-700 mx-3"
+                href={`/blog/${article.id}`}
+              >
                 Voir l'article
               </Link>
             </li>
